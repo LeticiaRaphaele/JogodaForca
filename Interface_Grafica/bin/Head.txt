@@ -1,0 +1,19 @@
+Eu vou criar um jogo da forca. O meu aplicativo tera cerca de 5 paginas feita com fxml
+A primeira pagina é a pagina incial aonde o usuario pode ser levado para onde ocorrerá o jogo,
+para onde ele ira saber sobre o programador, e para descobrir como jogar.
+Planejo que haja tres opcoes de tipos de palavras para o jogador escolher: Animais, cidades e comidas
+apos escolher iremos comecar o jogo.
+
+O que teremos no modelo:
+ -Modelo da classe forca:
+    -Tentativas
+    -Acertos
+    -palavrass
+    -caractere para cada parte da palavra
+    
+    *Comportamento
+    -Se errou um caractere a tentativas diminuem ate chegar 0, jogo acaba
+    -Se errou um caractere aparece uma imagem representando a parte do corpo respectiva a tentativa, 100% corpo quando tentativa=0
+    -Se acertou um caractere ele aparece no bloco correspondente a sua posicao na palavra
+    -As palavras usadas pertencem a classe Caractericas
+    -Poder reiniciar o jogo
