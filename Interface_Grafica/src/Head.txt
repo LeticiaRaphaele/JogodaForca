@@ -17,3 +17,5 @@ O que teremos no modelo:
     -Se acertou um caractere ele aparece no bloco correspondente a sua posicao na palavra
     -As palavras usadas pertencem a classe Caractericas
     -Poder reiniciar o jogo
+
+    <?import java.util.ArrayList?>

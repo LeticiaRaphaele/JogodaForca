@@ -19,6 +19,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import Controll.Controll_InicialPage;
+import Controll.Controll_MainGame;
+import Controll.Controll_Sobre_Nos;
+import Controll.Controll_Como_Jogar;
 
 public class Principal extends Application {
     public static void main(String[] args) throws Exception {

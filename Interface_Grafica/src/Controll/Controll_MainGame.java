@@ -72,6 +72,24 @@ public class Controll_MainGame {
     private ImageView cabeca_img;
 
     @FXML
+    private Button Voltar_InicialPage;
+
+    @FXML
+    private AnchorPane anchorPane3;
+
+    @FXML
+    private Button TentarNovaemnte_Button;
+
+    @FXML
+    private TextField YouWin_TextField;
+
+    @FXML
+    private TextField GameOver_TextField;
+
+    @FXML
+    private TextField Palavra_TextField;
+
+    @FXML
     private ArrayList<TextField> Char_TextField;
 
     private Scene scene;// usado na hora de trocar de tela
@@ -80,6 +98,7 @@ public class Controll_MainGame {
 
     private int tentativas = 6;// usado para limitar a quantidade de vezes que o usuario erra palavras
     private String word;// palavra escolhida no random
+    private int acertos = 0;
 
     private String[] cidades = new String[] { "praga", "montreal", "copenhague", "manchester", "madri", "lisboa",
             "itapetinga", "boston", "pequim", "budapeste", "roma", "istambul", "moscou", "recife", "matal" };
@@ -101,6 +120,7 @@ public class Controll_MainGame {
         // trocar de tela
         anchorPane2.setVisible(true);
         anchorPane1.setVisible(false);
+        anchorPane3.setVisible(false);
 
         // manter o boneco invisivel
         cabeca_img.setVisible(false);
@@ -112,15 +132,20 @@ public class Controll_MainGame {
 
         // escolher a palavra
         word = animais[rand.nextInt(animais.length)];
+        getWord();
 
         // dar valor aos textfields que nao precisam de imput do user
-        tentativas = 6;// caso a pessoa queria jogar de novo o numero de tentativas volta ao valor
-                       // inicial
+        tentativas = 6;
+        // caso a pessoa queria jogar de novo o numero de tentativas volta ao valor
+        // inicial
         Tentativas_no_TextField();
         tamanho_Word();
 
         // esconder blocos nao usados
         esconder_quadrados();
+
+        // limpar os elemntos dos blocos
+        limpar_quadrados();
     }
 
     @FXML
@@ -128,6 +153,7 @@ public class Controll_MainGame {
         // trocar de tela
         anchorPane2.setVisible(true);
         anchorPane1.setVisible(false);
+        anchorPane3.setVisible(false);
 
         // manter o boneco invisivel
         cabeca_img.setVisible(false);
@@ -139,6 +165,7 @@ public class Controll_MainGame {
 
         // escolher a palavra
         word = cidades[rand.nextInt(cidades.length)];
+        getWord();
 
         // dar valor aos textfields que nao precisam de imput do user
         tentativas = 6;
@@ -147,6 +174,9 @@ public class Controll_MainGame {
 
         // esconder blocos nao usados
         esconder_quadrados();
+
+        // limpar os elemntos dos blocos
+        limpar_quadrados();
     }
 
     @FXML
@@ -154,6 +184,7 @@ public class Controll_MainGame {
         // trocar de tela
         anchorPane2.setVisible(true);
         anchorPane1.setVisible(false);
+        anchorPane3.setVisible(false);
 
         // manter o boneco invisivel
         cabeca_img.setVisible(false);
@@ -165,6 +196,7 @@ public class Controll_MainGame {
 
         // escolher a palavra
         word = comida[rand.nextInt(comida.length)];
+        getWord();
 
         // dar valor aos textfields que nao precisam de imput do user
         tentativas = 6;
@@ -173,6 +205,9 @@ public class Controll_MainGame {
 
         // esconder blocos nao usados
         esconder_quadrados();
+
+        // limpar os elemntos dos blocos
+        limpar_quadrados();
     }
 
     @FXML
@@ -185,6 +220,24 @@ public class Controll_MainGame {
     }
 
     @FXML
+    public void backInicialPage(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/view/Inicial_Page.fxml"));
+        palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        palco.setScene(scene);
+        palco.show();
+    }
+
+    public void TentarDenovo(ActionEvent event) {
+        // troca de tela da forca para "Escolha sua Caracteristica"
+        anchorPane2.setVisible(false);
+        anchorPane1.setVisible(true);
+
+        // permite que todos os TextField retorne para a visibilidade inicial
+        aparecer_quadrados();
+    }
+
+    @FXML
     public void voltar(ActionEvent event) {
         // troca de tela da forca para "Escolha sua Caracteristica"
         anchorPane2.setVisible(false);
@@ -192,6 +245,11 @@ public class Controll_MainGame {
 
         // permite que todos os TextField retorne para a visibilidade inicial
         aparecer_quadrados();
+    }
+
+    public void getWord() {
+        Palavra_TextField.setText(word);
+        TryOut_TextField1.setText("");
     }
 
     public void Tentativas_no_TextField() {
@@ -211,6 +269,12 @@ public class Controll_MainGame {
     public void aparecer_quadrados() {
         for (int i = 0; i < 12; i++) {
             Char_TextField.get(i).setVisible(true);
+        }
+    }
+
+    public void limpar_quadrados() {
+        for (int i = 0; i < 12; i++) {
+            Char_TextField.get(i).setText(" ");
         }
     }
 
@@ -261,19 +325,32 @@ public class Controll_MainGame {
 
     public void Confirmar() {
         String letter = TryOut_TextField1.getText();
-        if (this.word.contains(letter)) {
+        if (word.contains(letter)) {
             int index = 0;// posicao inicial de um array
-            for (int i = 0; i < letter.length(); i++) {
+            for (int i = 0; i < word.length(); i++) {
                 char c = word.charAt(i);
                 if (String.valueOf(c).equals(letter)) {
+                    acertos++;
                     setLetra(index, Character.toString(c));
+                    TryOut_TextField1.setText("");
                 } // fim do if
                 index++;
             } // fim do for
         } // fim do if
         else {
             imagem_Boneco();
+            if (tentativas == 0) {
+                anchorPane3.setVisible(true);
+            } // fim do if
         } // fim do else
-    }
+        if (acertos == word.length() && tentativas != 0) {
+            winOrLose();
+        } // fim do if
+    }// fim do metodo Confirmar
+
+    public void winOrLose() {
+        anchorPane3.setVisible(true);
+        GameOver_TextField.setVisible(false);
+    }// fim do metodo WinOrLose
 
 }
