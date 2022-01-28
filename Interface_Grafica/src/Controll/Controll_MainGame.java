@@ -136,6 +136,7 @@ public class Controll_MainGame {
 
         // dar valor aos textfields que nao precisam de imput do user
         tentativas = 6;
+        acertos = 0;
         // caso a pessoa queria jogar de novo o numero de tentativas volta ao valor
         // inicial
         Tentativas_no_TextField();
@@ -146,7 +147,7 @@ public class Controll_MainGame {
 
         // limpar os elemntos dos blocos
         limpar_quadrados();
-    }
+    }// fim do metodo
 
     @FXML
     public void cidades_MainGame(ActionEvent event) {
@@ -169,6 +170,7 @@ public class Controll_MainGame {
 
         // dar valor aos textfields que nao precisam de imput do user
         tentativas = 6;
+        acertos = 0;
         Tentativas_no_TextField();
         tamanho_Word();
 
@@ -177,7 +179,7 @@ public class Controll_MainGame {
 
         // limpar os elemntos dos blocos
         limpar_quadrados();
-    }
+    }// fim do metodo
 
     @FXML
     public void comida_MainGame(ActionEvent event) {
@@ -200,6 +202,7 @@ public class Controll_MainGame {
 
         // dar valor aos textfields que nao precisam de imput do user
         tentativas = 6;
+        acertos = 0;
         Tentativas_no_TextField();
         tamanho_Word();
 
@@ -208,7 +211,7 @@ public class Controll_MainGame {
 
         // limpar os elemntos dos blocos
         limpar_quadrados();
-    }
+    }// fim do metodo
 
     @FXML
     public void comeBack(ActionEvent event) throws IOException {
@@ -217,7 +220,7 @@ public class Controll_MainGame {
         scene = new Scene(root);
         palco.setScene(scene);
         palco.show();
-    }
+    }// fim do metodo
 
     @FXML
     public void backInicialPage(ActionEvent event) throws IOException {
@@ -226,7 +229,7 @@ public class Controll_MainGame {
         scene = new Scene(root);
         palco.setScene(scene);
         palco.show();
-    }
+    }// fim do metodo
 
     public void TentarDenovo(ActionEvent event) {
         // troca de tela da forca para "Escolha sua Caracteristica"
@@ -235,7 +238,7 @@ public class Controll_MainGame {
 
         // permite que todos os TextField retorne para a visibilidade inicial
         aparecer_quadrados();
-    }
+    }// fim do metodo
 
     @FXML
     public void voltar(ActionEvent event) {
@@ -245,12 +248,12 @@ public class Controll_MainGame {
 
         // permite que todos os TextField retorne para a visibilidade inicial
         aparecer_quadrados();
-    }
+    }// fim do metodo
 
     public void getWord() {
         Palavra_TextField.setText(word);
         TryOut_TextField1.setText("");
-    }
+    }// fim do metodo
 
     public void Tentativas_no_TextField() {
         Tentativas_TextField.setText("" + tentativas);
@@ -258,25 +261,25 @@ public class Controll_MainGame {
 
     public void tamanho_Word() {
         Tam_TextField.setText("" + word.length());
-    }
+    }// fim do metodo
 
     public void esconder_quadrados() {
         for (int i = word.length(); i < 12; i++) {
             Char_TextField.get(i).setVisible(false);
-        }
-    }
+        } // fim do for
+    }// fim do metodo
 
     public void aparecer_quadrados() {
         for (int i = 0; i < 12; i++) {
             Char_TextField.get(i).setVisible(true);
-        }
-    }
+        } // fim do for
+    }// fim do metodo
 
     public void limpar_quadrados() {
         for (int i = 0; i < 12; i++) {
             Char_TextField.get(i).setText(" ");
-        }
-    }
+        } // fim do for
+    }// fim do metodo
 
     // acoes que ocorrem no jogo
 
@@ -306,9 +309,9 @@ public class Controll_MainGame {
                 perna_esquerda_img.setVisible(true);
                 break;
             } // fim do case 1
-        }
+        }// fim do swtich
         tentativas--;
-        Tentativas_no_TextField();
+        Tentativas_nmo_TextField();
     }// fim do metodo imagem_Boneco
 
     /*
@@ -332,9 +335,9 @@ public class Controll_MainGame {
                 if (String.valueOf(c).equals(letter)) {
                     acertos++;
                     setLetra(index, Character.toString(c));
-                    TryOut_TextField1.setText("");
+                    TryOut_TextField1.setText(""); 
                 } // fim do if
-                index++;
+                index++;// letra em +d1 indice
             } // fim do for
         } // fim do if
         else {
@@ -344,7 +347,7 @@ public class Controll_MainGame {
             } // fim do if
         } // fim do else
         if (acertos == word.length() && tentativas != 0) {
-            winOrLose();
+            winOrLose();// mostra a mensagem de ganho,
         } // fim do if
     }// fim do metodo Confirmar
 
@@ -353,4 +356,4 @@ public class Controll_MainGame {
         GameOver_TextField.setVisible(false);
     }// fim do metodo WinOrLose
 
-}
+}// fim da classe

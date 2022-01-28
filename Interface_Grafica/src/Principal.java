@@ -14,20 +14,24 @@
  da criacao do aplicativo e informacoes sobre o programador do aplicativo.
  
 *************************************************************** */
+//import javafx
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+//import dos arquivos da pasta Controle
 import Controll.Controll_InicialPage;
 import Controll.Controll_MainGame;
 import Controll.Controll_Sobre_Nos;
 import Controll.Controll_Como_Jogar;
 
+//inicio da classe Principal
 public class Principal extends Application {
     public static void main(String[] args) throws Exception {
         launch(args);
-    }
+    }// fim do metodo
 
     @Override
     public void start(Stage palco) throws Exception {
@@ -38,5 +42,6 @@ public class Principal extends Application {
         palco.setTitle("Jogo da Forca");
         palco.setScene(scene);
         palco.show();
-    }
-}
+    }// fim do metodo
+
+}// fim da classe Principal

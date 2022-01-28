@@ -26,6 +26,6 @@ public class Controll_Sobre_Nos {
         scene = new Scene(root);
         palco.setScene(scene);
         palco.show();
-    }
+    }// fim do metodo
 
-}
+}// fim da classe
