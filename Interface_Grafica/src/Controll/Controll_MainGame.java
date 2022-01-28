@@ -311,7 +311,7 @@ public class Controll_MainGame {
             } // fim do case 1
         }// fim do swtich
         tentativas--;
-        Tentativas_nmo_TextField();
+        Tentativas_no_TextField();
     }// fim do metodo imagem_Boneco
 
     /*
