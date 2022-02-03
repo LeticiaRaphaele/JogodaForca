@@ -20,6 +20,7 @@ import javafx.scene.Node;
 
 public class Controll_MainGame {
 
+    //objetos usados na gui javafx
     @FXML
     private TextField Tam_TextField;
 
@@ -134,7 +135,7 @@ public class Controll_MainGame {
         word = animais[rand.nextInt(animais.length)];
         getWord();
 
-        // dar valor aos textfields que nao precisam de imput do user
+        // dar valor aos textfields que nao precisam de imput do user e inciar acerto com 0
         tentativas = 6;
         acertos = 0;
         // caso a pessoa queria jogar de novo o numero de tentativas volta ao valor

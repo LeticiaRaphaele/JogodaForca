@@ -1,7 +1,9 @@
 package Controll;
 
+//importacoes java
 import java.io.IOException;
 
+//importaoes do javafc
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+//inicio da classe
 public class Controll_Sobre_Nos {
 
     private Scene scene;

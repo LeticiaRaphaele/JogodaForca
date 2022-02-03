@@ -37,9 +37,9 @@ public class Principal extends Application {
     public void start(Stage palco) throws Exception {
         Parent raiz = FXMLLoader.load(getClass().getResource("/view/Inicial_Page.fxml"));
         Scene scene = new Scene(raiz);
-        palco.setResizable(false);
-
         palco.setTitle("Jogo da Forca");
+        palco.setResizable(false);
+        palco.sizeToScene();
         palco.setScene(scene);
         palco.show();
     }// fim do metodo
