@@ -116,6 +116,16 @@ public class Controll_MainGame {
     // inicializando o randorizador
     Random rand = new Random();
 
+    /* ************************************************************
+     * Metodo: animais_MainGame
+     * Funcao: torna visivel o anchorpane2, torna todas as imagens usadas
+     * para o boneco com a visibilidade(false), sortei a palavra pertencente
+     * ao array cidades, incia os valores de tentativas e acertos, chama metodos 
+     * para que se for chamada novamente, nao possua valores presentes ainda nele
+     * Parametros: objeto do tipo ActionEvent  chamado event.
+     * Retorno: void
+     ************************************************************ */
+
     @FXML
     public void animais_MainGame(ActionEvent event) {
         // trocar de tela
@@ -150,6 +160,17 @@ public class Controll_MainGame {
         limpar_quadrados();
     }// fim do metodo
 
+
+    /* ************************************************************
+     * Metodo: cidades_MainGame
+     * Funcao: torna visivel o anchorpane2, torna todas as imagens usadas
+     * para o boneco com a visibilidade(false), sortei a palavra pertencente
+     * ao array cidades, incia os valores de tentativas e acertos, chama metodos 
+     * para que se for chamada novamente, nao possua valores presentes ainda nele
+     * Parametros: objeto do tipo ActionEvent  chamado event.
+     * Retorno: void
+     ************************************************************ */
+
     @FXML
     public void cidades_MainGame(ActionEvent event) {
         // trocar de tela
@@ -182,6 +203,17 @@ public class Controll_MainGame {
         limpar_quadrados();
     }// fim do metodo
 
+
+    /* ************************************************************
+     * Metodo: comida_MainGame
+     * Funcao: torna visivel o anchorpane2, torna todas as imagens usadas
+     * para o boneco com a visibilidade(false), sortei a palavra pertencente
+     * ao array comida, incia os valores de tentativas e acertos, chama metodos 
+     * para que se for chamada novamente, nao possua valores presentes ainda nele
+     * Parametros: objeto do tipo ActionEvent  chamado event.
+     * Retorno: void
+     ************************************************************ */
+    
     @FXML
     public void comida_MainGame(ActionEvent event) {
         // trocar de tela
@@ -214,6 +246,14 @@ public class Controll_MainGame {
         limpar_quadrados();
     }// fim do metodo
 
+    /* ************************************************************
+     * Metodo: comeBack
+     * Funcao: volta para a pagina especificada por meio da raiz escolhida
+     * (/view/Inicial_Page.fxml)
+     * Parametros: objeto do tipo ActionEvent  chamado event.
+     * Retorno: void
+     ************************************************************ */
+    
     @FXML
     public void comeBack(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/view/Inicial_Page.fxml"));
@@ -222,6 +262,15 @@ public class Controll_MainGame {
         palco.setScene(scene);
         palco.show();
     }// fim do metodo
+
+
+    /* ************************************************************
+     * Metodo: backInicialPage
+     * Funcao: volta para a pagina especificada por meio da raiz escolhida
+     * (/view/Inicial_Page.fxml)
+     * Parametros: objeto do tipo ActionEvent  chamado event.
+     * Retorno: void
+     ************************************************************ */
 
     @FXML
     public void backInicialPage(ActionEvent event) throws IOException {
@@ -232,6 +281,14 @@ public class Controll_MainGame {
         palco.show();
     }// fim do metodo
 
+    /* ************************************************************
+     * Metodo: TentarDenovo
+     * Funcao: troca de tela tornado o anchorpane2, aonde o usuario joga
+     * o jogo, para a area aonde se e escolhida a categoria
+     * Parametros: objeto do tipo ActionEvent  chamado event.
+     * Retorno: void
+     ************************************************************ */
+
     public void TentarDenovo(ActionEvent event) {
         // troca de tela da forca para "Escolha sua Caracteristica"
         anchorPane2.setVisible(false);
@@ -240,6 +297,14 @@ public class Controll_MainGame {
         // permite que todos os TextField retorne para a visibilidade inicial
         aparecer_quadrados();
     }// fim do metodo
+
+    /* ************************************************************
+     * Metodo: voltar
+     * Funcao: troca de tela tornado o anchorpane2, aonde o usuario joga
+     * o jogo, para a area aonde se e escolhida a categoria
+     * Parametros: objeto do tipo ActionEvent  chamado event.
+     * Retorno: void
+     ************************************************************ */
 
     @FXML
     public void voltar(ActionEvent event) {
@@ -251,18 +316,50 @@ public class Controll_MainGame {
         aparecer_quadrados();
     }// fim do metodo
 
+    /* ************************************************************
+     * Metodo: getWord
+     * Funcao: recebe qual a palavra sorteada e limpa a area aonde 
+     * o usuario digita a palavra a ser adivinhada
+     * Parametros: vazio ().
+     * Retorno: void
+     ************************************************************ */
+    
     public void getWord() {
         Palavra_TextField.setText(word);
         TryOut_TextField1.setText("");
-    }// fim do metodo
+    }// fim do metodo getWord
+
+    /* ************************************************************
+     * Metodo: Tentativas_no_TextField
+     * Funcao: mostra o valor da variavel Tentativas no seu textField 
+     * correspondente.
+     * Parametros: vazio ().
+     * Retorno: void
+     ************************************************************ */
 
     public void Tentativas_no_TextField() {
         Tentativas_TextField.setText("" + tentativas);
-    }
+    }//fim do metodo Tentativas_no_TextField
+
+    /* ************************************************************
+     * Metodo: tamanho_Word
+     * Funcao: expoem o tamanho da palavra sorteada
+     * Parametros: vazio ().
+     * Retorno: void
+     ************************************************************ */
 
     public void tamanho_Word() {
         Tam_TextField.setText("" + word.length());
     }// fim do metodo
+
+    
+    /* ************************************************************
+     * Metodo: esconder_quadrados
+     * Funcao: determina a quantidade de Char_TextFields visiveis
+     * (o numero e correlacionado com o tamanho da palavra)
+     * Parametros: vazio ().
+     * Retorno: void
+     ************************************************************ */
 
     public void esconder_quadrados() {
         for (int i = word.length(); i < 12; i++) {
@@ -270,11 +367,25 @@ public class Controll_MainGame {
         } // fim do for
     }// fim do metodo
 
+    /* ************************************************************
+     * Metodo: aparecer_quadrados
+     * Funcao: torna todos os Char_TextFields visiveis
+     * Parametros: vazio ().
+     * Retorno: void
+     ************************************************************ */
+   
     public void aparecer_quadrados() {
         for (int i = 0; i < 12; i++) {
             Char_TextField.get(i).setVisible(true);
         } // fim do for
     }// fim do metodo
+
+    /* ************************************************************
+     * Metodo: limpar_quadrados
+     * Funcao: a cada novo jogo se limpa o TextField onde as letras aparecem
+     * Parametros: vazio ().
+     * Retorno: void
+     ************************************************************ */
 
     public void limpar_quadrados() {
         for (int i = 0; i < 12; i++) {
@@ -284,6 +395,14 @@ public class Controll_MainGame {
 
     // acoes que ocorrem no jogo
 
+    /* ************************************************************
+     * Metodo: imagem_Boneco
+     * Funcao: A cada unidade que a variavel Tentativas perde,
+     * se determina uma imagem que devera aparecer 
+     * Parametros: vazio ().
+     * Retorno: void
+     ************************************************************ */
+    
     public void imagem_Boneco() {
         switch (tentativas) {
             case 6: {
@@ -315,17 +434,32 @@ public class Controll_MainGame {
         Tentativas_no_TextField();
     }// fim do metodo imagem_Boneco
 
-    /*
+    /* ************************************************************
      * Metodo: setLetra
      * Funcao: relaciona a letra digitada pelo usuario com o TextField
      * correspondente
      * Parametros: Inteiro referente ao index em que a letra se encontra (index),
      * String correspondente a letra presente na palavra (letter)
      * Retorno: void
-     */
+     ************************************************************ */
+
     public void setLetra(int index, String letter) {// inicia o metodo
         Char_TextField.get(index).setText(letter);
     }// fim do metodo setLetra
+
+
+    /* ************************************************************
+     * Metodo: Confirmar
+     * Funcao:  recebe a letra digitada pelo usuario e se verifica 
+     * se existe essa letra dentro da palavra que se deve encontrar no jogo
+     * se sim, e verificado quantas vezes a letra aparece, adicionando um valor
+     * para a variavel acerto a cada vez que ela aparecer, até que se ganhe o 
+     * jogo se tentativas != 0. Caso não, a variavel tentativas perde 1 unidade
+     * aparecendo uma parte do corpo do boneco. Quando tentativas chegar em 0
+     * o anchorpane 3 fica visivel.
+     * Parametros: ().
+     * Retorno: void
+     ************************************************************ */  
 
     public void Confirmar() {
         String letter = TryOut_TextField1.getText();
@@ -351,6 +485,13 @@ public class Controll_MainGame {
             winOrLose();// mostra a mensagem de ganho,
         } // fim do if
     }// fim do metodo Confirmar
+
+     /* ************************************************************
+     * Metodo: winOrLose
+     * Funcao: torna o anchorPane3 visivel e o textfield GameOver invisivel.
+     * Parametros: vazio ().
+     * Retorno: void
+     ************************************************************ */
 
     public void winOrLose() {
         anchorPane3.setVisible(true);

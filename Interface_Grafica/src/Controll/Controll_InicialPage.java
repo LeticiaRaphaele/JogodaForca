@@ -30,6 +30,14 @@ public class Controll_InicialPage {
     @FXML
     private Button sobreNos_Button;
 
+    /* ************************************************************
+    * Metodo: irPara_Iniciar_Jogo
+    * Funcao: usa de um evento (ActionEvent) para trocar a pagina
+    * (indo para /view/MainGame.fxml) do programa
+    * Parametros: um ActionEvent chamado e
+    * Retorno: vazio.
+    *************************************************************** */
+
     public void irPara_Iniciar_Jogo(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/view/Main_Game.fxml"));
         palco = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -38,6 +46,14 @@ public class Controll_InicialPage {
         palco.show();
     }// fim do metodo
 
+    /* ************************************************************
+    * Metodo: ir_Sobre_Nos
+    * Funcao: usa de um evento (ActionEvent) para trocar a pagina 
+    * (indo para /view/Sobre_Nos.fxml) do programa
+    * Parametros: um ActionEvent chamado e
+    * Retorno: vazio.
+    *************************************************************** */
+
     public void ir_Sobre_Nos(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/Sobre_Nos.fxml"));
         palco = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -45,6 +61,14 @@ public class Controll_InicialPage {
         palco.setScene(scene);
         palco.show();
     }// fim do metodo
+
+    /* ************************************************************
+    * Metodo: Para_Como_Jogar
+    * Funcao: usa de um evento (ActionEvent) para trocar a pagina 
+    * (indo para /view/Como_jogar.fxml) do programa
+    * Parametros: um ActionEvent chamado e
+    * Retorno: vazio.
+    *************************************************************** */
 
     public void Para_Como_Jogar(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/Como_Jogar.fxml"));
