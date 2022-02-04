@@ -503,6 +503,13 @@ public class Controll_MainGame {
         GameOver_TextField.setVisible(false);
     }// fim do metodo WinOrLose
 
+    /* ************************************************************
+     * Metodo: repeated
+     * Funcao: verifica se a letra digitada pelo usuario ja foi adicionada
+     * se sim retorna true e nao retorna false
+     * Retorno: boolean
+     ************************************************************ */
+
     public boolean repeated(String letter){
         for(int i = 0; i < word.length(); i++){
             if(Char_TextField.get(i).getText().equals(letter))
