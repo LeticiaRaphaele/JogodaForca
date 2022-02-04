@@ -102,7 +102,7 @@ public class Controll_MainGame {
     private int acertos = 0;
 
     private String[] cidades = new String[] { "praga", "montreal", "copenhague", "manchester", "madri", "lisboa",
-            "itapetinga", "boston", "pequim", "budapeste", "roma", "istambul", "moscou", "recife", "matal" };
+            "itapetinga", "boston", "pequim", "budapeste", "roma", "istambul", "moscou", "recife", "natal" };
     // string de nomes de cidades
 
     private String[] animais = new String[] { "andorinha", "foca", "golfinho", "jaguar", "ovelha", "passaro",
@@ -463,6 +463,10 @@ public class Controll_MainGame {
 
     public void Confirmar() {
         String letter = TryOut_TextField1.getText();
+        if(repeated(letter)){
+            TryOut_TextField1.setText("");
+        }//fim do if
+        else{
         if (word.contains(letter)) {
             int index = 0;// posicao inicial de um array
             for (int i = 0; i < word.length(); i++) {
@@ -470,7 +474,6 @@ public class Controll_MainGame {
                 if (String.valueOf(c).equals(letter)) {
                     acertos++;
                     setLetra(index, Character.toString(c));
-                    TryOut_TextField1.setText(""); 
                 } // fim do if
                 index++;// letra em +d1 indice
             } // fim do for
@@ -484,6 +487,8 @@ public class Controll_MainGame {
         if (acertos == word.length() && tentativas != 0) {
             winOrLose();// mostra a mensagem de ganho,
         } // fim do if
+        TryOut_TextField1.setText(""); 
+        }//fim do else
     }// fim do metodo Confirmar
 
      /* ************************************************************
@@ -497,5 +502,13 @@ public class Controll_MainGame {
         anchorPane3.setVisible(true);
         GameOver_TextField.setVisible(false);
     }// fim do metodo WinOrLose
+
+    public boolean repeated(String letter){
+        for(int i = 0; i < word.length(); i++){
+            if(Char_TextField.get(i).getText().equals(letter))
+            return true;
+        }
+        return false;
+    }//fim do metodo repeted
 
 }// fim da classe

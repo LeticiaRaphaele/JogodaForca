@@ -189,16 +189,6 @@
                         <Font name="Rockwell Extra Bold" size="25.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="YouWin_TextField" alignment="CENTER" editable="false" layoutX="73.0" layoutY="195.0" prefHeight="125.0" prefWidth="385.0" promptText="Você venceu!" style="-fx-background-color: #fafafa; -fx-background-radius: 50; -fx-border-color: black; -fx-border-radius: 50;" text="Você venceu!">
-                     <font>
-                        <Font name="Rockwell Extra Bold" size="40.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="GameOver_TextField" alignment="CENTER" editable="false" layoutX="73.0" layoutY="195.0" onAction="#winOrLose" prefHeight="125.0" prefWidth="385.0" style="-fx-background-color: #fafafa; -fx-background-radius: 50; -fx-border-color: black; -fx-border-radius: 50;" text="Game Over!">
-                     <font>
-                        <Font name="Rockwell Extra Bold" size="40.0" />
-                     </font>
-                  </TextField>
                   <TextField fx:id="Palavra_TextField" alignment="CENTER" editable="false" layoutX="83.0" layoutY="114.0" onAction="#getWord" style="-fx-background-color: #fafafa; -fx-border-color: BLACK; -fx-background-radius: 50; -fx-border-radius: 50;">
                      <font>
                         <Font name="Rockwell Extra Bold" size="25.0" />
@@ -209,6 +199,16 @@
                         <Font name="Rockwell Extra Bold" size="40.0" />
                      </font>
                   </Label>
+                  <TextField fx:id="YouWin_TextField" alignment="CENTER" editable="false" layoutX="73.0" layoutY="195.0" prefHeight="125.0" prefWidth="385.0" promptText="Você venceu!" style="-fx-background-color: #fafafa; -fx-background-radius: 50; -fx-border-color: black; -fx-border-radius: 50;" text="Você venceu!">
+                     <font>
+                        <Font name="Rockwell Extra Bold" size="40.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="GameOver_TextField" alignment="CENTER" editable="false" layoutX="73.0" layoutY="195.0" onAction="#winOrLose" prefHeight="125.0" prefWidth="385.0" style="-fx-background-color: #fafafa; -fx-background-radius: 50; -fx-border-color: black; -fx-border-radius: 50;" text="Game Over!">
+                     <font>
+                        <Font name="Rockwell Extra Bold" size="40.0" />
+                     </font>
+                  </TextField>
                </children>
             </AnchorPane>
             <Button fx:id="Voltar_Button" layoutX="901.0" layoutY="554.0" mnemonicParsing="false" onAction="#voltar" prefHeight="38.0" prefWidth="48.0" style="-fx-background-radius: 100; -fx-background-color: #fafafa; -fx-border-radius: 100; -fx-background-image: 234;" text="&lt;" textAlignment="JUSTIFY" textFill="#4b0e0e">
